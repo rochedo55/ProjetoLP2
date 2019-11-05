@@ -1,6 +1,7 @@
 package application;
 	
 import java.util.List;
+import java.util.Scanner;
 
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
@@ -14,6 +15,11 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.OutputStream;
 
 
 public class Main extends Application {
@@ -39,6 +45,25 @@ public class Main extends Application {
 		Imgproc.resize(img, img, new Size(64,128), 0.5, 0.5, Imgproc.INTER_LINEAR);
 		hog.compute(img,features);
 		List<Float> arrayOfFeatures = features.toList();
+		System.out.print(img+"\n");
+		//System.out.print(features.toList()); // mostra a img em float
+		
+		File dataset = new File("dataset_2019_1.csv");
+		
+		try {
+			String linhas = new String(); 
+			Scanner leitor = new Scanner(dataset);
+			
+			while(leitor.hasNext()) {
+				linhas = leitor.nextLine();
+				System.out.print(linhas+"\n");
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
 		launch(args);
 	}
 }
