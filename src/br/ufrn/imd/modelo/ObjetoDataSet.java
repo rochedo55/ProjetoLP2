@@ -1,5 +1,6 @@
 package br.ufrn.imd.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ObjetoDataSet {
@@ -10,7 +11,9 @@ public abstract class ObjetoDataSet {
 	// Distancia euclidiana da imd a instancia
 	protected float distancia;
 	
-	public ObjetoDataSet(){};
+	public ObjetoDataSet(){
+		this.atributos = new ArrayList<Float>();
+	};
 
 	public abstract void CalcularDistancia();
 
@@ -28,6 +31,10 @@ public abstract class ObjetoDataSet {
 
 	public void setAtributos(List<Float> atributos) {
 		this.atributos = atributos;
+	}
+	
+	public void setAtributo(float atributo) {
+		this.atributos.add(atributo);
 	}
 
 	public float getDistancia() {

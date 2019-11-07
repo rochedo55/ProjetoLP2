@@ -14,6 +14,7 @@ import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.HOGDescriptor;
 
 import br.ufrn.imd.modelo.ObjetoEuclidiano;
+import br.ufrn.imd.modelo.Tratamento;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -40,58 +41,14 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
-		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-		HOGDescriptor hog = new HOGDescriptor();
-		Mat img = new Mat();
-		MatOfFloat features = new MatOfFloat();
-		img = Imgcodecs.imread("C:\\Users\\ander\\Downloads\\peixe.jpg", Imgcodecs.IMREAD_GRAYSCALE);
-		Imgproc.resize(img, img, new Size(64,128), 0.5, 0.5, Imgproc.INTER_LINEAR);
-		hog.compute(img,features);
-		List<Float> arrayOfFeatures = features.toList();
-
-		//System.out.print(features.toList()); // mostra a img em float
+		// --------------------------------------> isso fica no controler ou em outra classe (provavelmente no controer msm)
+		Tratamento tratamento = new Tratamento();
+		tratamento.imagem("C:\\Users\\ander\\Downloads\\peixe.jpg");
+		tratamento.dataset();
 		
-		File dataset = new File("dataset_2019_1.csv");
-		List<ObjetoEuclidiano> ListaDeObjetos = new ArrayList<ObjetoEuclidiano>();
-		List<Float> listaDeAtributos = new ArrayList<Float>();
-		char rotulo = 0;
-		String linha = new String(); 
-		
-		try {
-			Scanner leitor = new Scanner(dataset);
-			
-			int n = 0;
-			while(leitor.hasNext()) {
-				
-				linha = leitor.nextLine();
-				String listaDaLinha[] = linha.split(Pattern.quote(","));
-				if(n != 0) {
-					for(int i = 0; i <= 1000; i ++) {
-						if(i == 1000) {
-							String r = listaDaLinha[999];
-							rotulo = r.charAt(0);
-						}else {
-							float valor = (float)Float.parseFloat(listaDaLinha[i]);
-							System.out.print(valor+"\n"+i+"\n");
-							listaDeAtributos.add(valor);
-						}
-						ObjetoEuclidiano obj = new ObjetoEuclidiano();
-						obj.setRotulo(rotulo);
-						obj.setAtributos(listaDeAtributos);
-						ListaDeObjetos.add(obj);
-
-					}
-				}
-				n = n + 1;
-			}
-			leitor.close();
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-
+		//System.out.print(tratamento.getDataset().get(10).getRotulo());
+		//System.out.print(tratamento.getDataset().get(80).getRotulo());
+		System.out.print(tratamento.getDataset().get(10).getAtributos());
 		launch(args);
 	}
 }
