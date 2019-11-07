@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ObjetoDataSet {
-	// 'p' = pessoa | 'n' = não pessoa
-	protected char rotulo; 
-	// Lista dos 1000 primeiros atributos
-	protected List<Float> atributos;
-	// Distancia euclidiana da imd a instancia
-	protected float distancia;
+	
+	protected char rotulo;// 'p' = pessoa | 'n' = não pessoa 
+	protected List<Float> atributos; // Lista dos 1000 primeiros atributos
+	protected float distancia;// Distancia euclidiana da imd a instancia
 	
 	public ObjetoDataSet(){
 		this.atributos = new ArrayList<Float>();

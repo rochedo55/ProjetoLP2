@@ -83,10 +83,10 @@ public class Tratamento {
 			e.printStackTrace();
 		}
 	}
-	public void pegar1000atributosimg() {
+	/*public void pegar1000atributosimg() {
 		for ()
 		for
 		0 1000
 		this.imagem;
-	}
+	}*/
 }
