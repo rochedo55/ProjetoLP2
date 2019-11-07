@@ -1,10 +1,6 @@
 package br.ufrn.imd.modelo;
 
-import java.util.List;
-
 public class ObjetoEuclidiano extends ObjetoDataSet{
-	
-	private List<ObjetoDataSet> AllDistancias;
 
 	public  ObjetoEuclidiano(){
 		super();
@@ -12,8 +8,6 @@ public class ObjetoEuclidiano extends ObjetoDataSet{
 	
 	@Override
 	public void CalcularDistancia() {
-		
-		for()
 
 	}
 
