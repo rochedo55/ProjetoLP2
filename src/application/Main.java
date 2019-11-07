@@ -1,30 +1,10 @@
 package application;
 	
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.regex.Pattern;
-
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import org.opencv.core.MatOfFloat;
-import org.opencv.core.Size;
-import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.imgproc.Imgproc;
-import org.opencv.objdetect.HOGDescriptor;
-
-import br.ufrn.imd.modelo.ObjetoEuclidiano;
 import br.ufrn.imd.modelo.Tratamento;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.OutputStream;
-
 
 public class Main extends Application {
 	@Override
@@ -37,6 +17,7 @@ public class Main extends Application {
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
+			
 		}
 	}
 	
@@ -46,9 +27,11 @@ public class Main extends Application {
 		tratamento.imagem("C:\\Users\\ander\\Downloads\\peixe.jpg");
 		tratamento.dataset();
 		
+		// TESTES
 		//System.out.print(tratamento.getDataset().get(10).getRotulo());
 		//System.out.print(tratamento.getDataset().get(80).getRotulo());
-		System.out.print(tratamento.getDataset().get(10).getAtributos());
+		//System.out.print(tratamento.getDataset().get(10).getAtributos());
+		
 		launch(args);
 	}
 }
