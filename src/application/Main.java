@@ -24,13 +24,13 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		// --------------------------------------> isso fica no controler ou em outra classe (provavelmente no controer msm)
 		Tratamento tratamento = new Tratamento();
-		tratamento.imagem("C:\\Users\\ander\\Downloads\\peixe.jpg");
+		tratamento.imagem("C:\\Users\\Gabriel Rocha\\Desktop\\negative.png");
 		tratamento.dataset();
 		
 		// TESTES
-		//System.out.print(tratamento.getDataset().get(10).getRotulo());
-		//System.out.print(tratamento.getDataset().get(80).getRotulo());
-		//System.out.print(tratamento.getDataset().get(10).getAtributos());
+		System.out.print(tratamento.getDataset().get(10).getRotulo());
+		System.out.print(tratamento.getDataset().get(80).getRotulo());
+		System.out.print(tratamento.getDataset().get(10).getAtributos());
 		
 		launch(args);
 	}
