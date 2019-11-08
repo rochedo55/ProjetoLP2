@@ -50,9 +50,6 @@ public class Tratamento {
 		Imgproc.resize(img, img, new Size(64,128), 0.5, 0.5, Imgproc.INTER_LINEAR);
 		hog.compute(img,features);
 		this.imagem = features.toList();
-		//pegar1000atributosimg();
-		
-		// ------------------------------------------------------------>   Criar uma função pra pegar só os 1000 primeiros atributos
 	}
 	
 	public void dataset() {

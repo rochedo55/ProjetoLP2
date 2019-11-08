@@ -1,5 +1,7 @@
 package application;
 	
+import br.ufrn.imd.modelo.ObjetoDataSet;
+import br.ufrn.imd.modelo.ObjetoEuclidiano;
 import br.ufrn.imd.modelo.Tratamento;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -25,9 +27,12 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		// --------------------------------------> isso fica no controler ou em outra classe (provavelmente no controer msm)
 		Tratamento tratamento = new Tratamento();
-		tratamento.imagem("C:\\Users\\ander\\Downloads\\peixe.jpg");
+		ObjetoDataSet obj = new ObjetoEuclidiano();
+		tratamento.imagem("C:\\Users\\ander\\Downloads\\0.png");
 		tratamento.dataset();
-		
+		obj.CalcularDistancia(tratamento);
+		System.out.print(tratamento.getDataset().get(0).getDistancia()+"\n");
+		//System.out.print(tratamento.getDataset().get(80).getDistancia());
 		// TESTES
 		//System.out.print(tratamento.getDataset().get(10).getRotulo());
 		//System.out.print(tratamento.getDataset().get(80).getRotulo());

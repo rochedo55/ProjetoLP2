@@ -7,13 +7,13 @@ public abstract class ObjetoDataSet {
 	
 	protected char rotulo;// 'p' = pessoa | 'n' = não pessoa 
 	protected List<Float> atributos; // Lista dos 1000 primeiros atributos
-	protected float distancia;// Distancia euclidiana da imd a instancia
+	protected double distancia;// Distancia euclidiana da imd a instancia
 	
 	public ObjetoDataSet(){
 		this.atributos = new ArrayList<Float>();
 	};
 
-	public abstract void CalcularDistancia();
+	public abstract Tratamento CalcularDistancia(Tratamento tratamento);
 
 	public char getRotulo() {
 		return rotulo;
@@ -26,21 +26,25 @@ public abstract class ObjetoDataSet {
 	public List<Float> getAtributos() {
 		return atributos;
 	}
+	
+	public Float getAtributo(int i) {
+		return this.atributos.get(i);
+	}
 
 	public void setAtributos(List<Float> atributos) {
 		this.atributos = atributos;
 	}
 	
-	public void setAtributo(float atributo) {
-		this.atributos.add(atributo);
+	public void setAtributo(float valor) {
+		this.atributos.add(valor);
 	}
 
-	public float getDistancia() {
+	public double getDistancia() {
 		return distancia;
 	}
 
-	public void setDistancia(float distancia) {
-		this.distancia = distancia;
+	public void setDistancia(double d) {
+		this.distancia = d;
 	}
 	
 	
