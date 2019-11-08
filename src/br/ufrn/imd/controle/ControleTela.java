@@ -1,22 +1,18 @@
 package br.ufrn.imd.controle;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.io.File;
+import java.util.regex.Pattern;
 
-
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBoxBase;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-public class ControleTela implements Initializable{
+public class ControleTela{
 
 	@FXML
 	private Stage primeiro;
@@ -32,6 +28,9 @@ public class ControleTela implements Initializable{
 
     @FXML
     private Label label;
+    
+    @FXML
+    private Label erro;
 
     @FXML
     private ComboBoxBase<?> comboBox;
@@ -44,36 +43,31 @@ public class ControleTela implements Initializable{
 	
 	@FXML
 	public void abrirImagem() {
-		
+		FileChooser choser = new FileChooser();
+	    File file = choser.showOpenDialog(null);
+	    verificarExtencao(file);
 	}
 	
 	@FXML
 	public void ButtonAction(ActionEvent event) {
-		System.out.print(label.getText() +"\n");
-		System.out.print("Sua mãe \n");
 		label.setText("Ola mundo");
+		// --------------------------------------> KNN AQUI!!!!!!!!!!!!
 	}
-	
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+
+	public void verificarExtencao(File file) {
+		try {
+			String caminho = file.toString();
+			String extencao[] = caminho.split(Pattern.quote("."));
+			String ext = extencao[1];
+			System.out.println(ext);	
+			if(ext.equals("png")) {
+				
+			}else {
+				erro.setText("Formato invalido, pfv selecione outra img");
+			}
+		} catch (Exception e) {
+			erro.setText("Img não encontrada, pfv selecione uma img");
+		}
 		
 	}
-	
-	private void initPrincipal() {
-        //essa funcao faz com que as coisas setadas no scene
-        //aparecao quando a janela for aberta,logo ela precisa ser chamada ao iniciar
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("../visao/TelaPrincipal.fxml"));
-            loader.setController(this);
-            tela = (AnchorPane) loader.load();
-
-            Scene scene = new Scene(tela);
-            primeiro.setScene(scene);
-            primeiro.show();
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-    }
 }

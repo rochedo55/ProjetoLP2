@@ -40,7 +40,7 @@ public abstract class ObjetoDataSet {
 	}
 
 	public double getDistancia() {
-		return distancia;
+		return this.distancia;
 	}
 
 	public void setDistancia(double d) {
