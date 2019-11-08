@@ -16,7 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class ControleTela extends Application implements Initializable{
+public class ControleTela implements Initializable{
 
 	@FXML
 	private Stage primeiro;
@@ -43,6 +43,11 @@ public class ControleTela extends Application implements Initializable{
 	}
 	
 	@FXML
+	public void abrirImagem() {
+		
+	}
+	
+	@FXML
 	public void ButtonAction(ActionEvent event) {
 		System.out.print(label.getText() +"\n");
 		System.out.print("Sua mãe \n");
@@ -60,7 +65,7 @@ public class ControleTela extends Application implements Initializable{
         //aparecao quando a janela for aberta,logo ela precisa ser chamada ao iniciar
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("../br/ufrn/imd/visao/TelaPrincipal.fxml"));
+            loader.setLocation(getClass().getResource("../visao/TelaPrincipal.fxml"));
             loader.setController(this);
             tela = (AnchorPane) loader.load();
 
@@ -71,10 +76,4 @@ public class ControleTela extends Application implements Initializable{
             System.err.println(e);
         }
     }
-
-	@Override
-	public void start(Stage arg0) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
 }
