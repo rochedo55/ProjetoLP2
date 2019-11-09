@@ -48,7 +48,6 @@ public class Knn implements KnnInterface {
 			}
 
 	    };
-	    //peguei du stack mermu
 
 	    Collections.sort(tupla, comparator);
 	}

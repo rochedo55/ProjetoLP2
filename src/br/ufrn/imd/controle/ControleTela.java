@@ -3,10 +3,13 @@ package br.ufrn.imd.controle;
 import java.io.File;
 import java.util.regex.Pattern;
 
+import br.ufrn.imd.modelo.ObjetoDataSet;
+import br.ufrn.imd.modelo.ObjetoEuclidiano;
+import br.ufrn.imd.modelo.Tratamento;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBoxBase;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
@@ -33,14 +36,19 @@ public class ControleTela{
     private Label erro;
 
     @FXML
-    private ComboBoxBase<?> comboBox;
+    private ComboBox<String> comboBox;
+    
+    public String caminho;
+
+	
 	@FXML
-	public void ComboBox() {
-	    //comboBox.getId().removeAll(comboBox.getId());
-	    //comboBox.getId().addAll("Option A", "Option B", "Option C");
-	    //comboBox.getSelectionModel().select("Option B");
+	public void initialize() {
+	    comboBox.getItems().removeAll(comboBox.getItems());
+	    comboBox.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
+	    comboBox.getSelectionModel().select("1");  
 	}
 	
+    
 	@FXML
 	public void abrirImagem() {
 		FileChooser choser = new FileChooser();
@@ -50,23 +58,35 @@ public class ControleTela{
 	
 	@FXML
 	public void ButtonAction(ActionEvent event) {
-		label.setText("Ola mundo");
-		// --------------------------------------> KNN AQUI!!!!!!!!!!!!
+		Tratamento tratamento = new Tratamento();
+		ObjetoDataSet obj = new ObjetoEuclidiano();
+		if(caminho != null) {
+			tratamento.imagem(caminho);
+			tratamento.dataset();
+			tratamento = obj.CalcularDistancia(tratamento);
+		
+			KnnTeste k = new KnnTeste();
+			String resposta = k.Ordenar(tratamento, Integer.parseInt(comboBox.getSelectionModel().getSelectedItem()));
+			label.setText(resposta);
+		}else {
+			erro.setText("Img não encontrada, pfv selecione uma img");
+		}
 	}
 
 	public void verificarExtencao(File file) {
 		try {
-			String caminho = file.toString();
+			caminho = file.toString();
 			String extencao[] = caminho.split(Pattern.quote("."));
-			String ext = extencao[1];
-			System.out.println(ext);	
+			String ext = extencao[1];	
 			if(ext.equals("png")) {
-				
+				erro.setText("Img "+caminho+" selecionada");
 			}else {
 				erro.setText("Formato invalido, pfv selecione outra img");
+				caminho = null;
 			}
 		} catch (Exception e) {
 			erro.setText("Img não encontrada, pfv selecione uma img");
+			caminho = null;
 		}
 		
 	}
