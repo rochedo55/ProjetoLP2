@@ -3,6 +3,7 @@ package br.ufrn.imd.controle;
 import java.io.File;
 import java.util.regex.Pattern;
 
+import br.ufrn.imd.modelo.Knn;
 import br.ufrn.imd.modelo.ObjetoDataSet;
 import br.ufrn.imd.modelo.ObjetoEuclidiano;
 import br.ufrn.imd.modelo.Tratamento;
@@ -84,11 +85,11 @@ public class ControleTela{
 			tratamento.dataset();
 			tratamento = obj.CalcularDistancia(tratamento);
 		
-			KnnTeste k = new KnnTeste();
+			Knn k = new Knn();
 			String resposta = k.Ordenar(tratamento, Integer.parseInt(comboBox.getSelectionModel().getSelectedItem()));
 			label.setText(resposta);
 		}else {
-			erro.setText("Img não encontrada, pfv selecione uma img");
+			erro.setText("Imagem não encontrada, Por favor, selecione outra imagem");
 		}
 	}
 	/**
@@ -101,13 +102,13 @@ public class ControleTela{
 			String extencao[] = caminho.split(Pattern.quote("."));
 			String ext = extencao[1];	
 			if(ext.equals("png")) {
-				erro.setText("Img "+caminho+" selecionada");
+				erro.setText("Imagem "+caminho+" selecionada");
 			}else {
-				erro.setText("Formato invalido, pfv selecione outra img");
+				erro.setText("Formato inválido, Por favor, selecione outra imagem");
 				caminho = null;
 			}
 		} catch (Exception e) {
-			erro.setText("Img não encontrada, pfv selecione uma img");
+			erro.setText("Imagem não encontrada, Por favor, selecione outra imagem");
 			caminho = null;
 		}
 		

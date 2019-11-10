@@ -69,12 +69,12 @@ public class Tratamento {
 	 * Funcao que le o dataset e o armazena na lista de dataset
 	 */
 	public void dataset() {
-		File dataset = new File("dataset_2019_1.csv"); //Pega o data set (caminho) não precisa de verificação pq ta na pasta do projeto
-		String linha = new String(); // cria uma string pra ler linha por linha
+		File dataset = new File("dataset_2019_1.csv"); 
+		String linha = new String();
 		
-		try {// ---------------------------------------------> OBRIGATÓRIO - ve se da pra ler o arquivo (se ele existe)
+		try {
 			Scanner leitor = new Scanner(dataset);
-			linha = leitor.nextLine();  // ---------------------------------> só pra n pegar a primeira linha
+			linha = leitor.nextLine();  
 			while(leitor.hasNext()) {
 				linha = leitor.nextLine();
 				String listaDaLinha[] = linha.split(Pattern.quote(","));
@@ -92,7 +92,6 @@ public class Tratamento {
 			}
 			leitor.close();
 		}catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

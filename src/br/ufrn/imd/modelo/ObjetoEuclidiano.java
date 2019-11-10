@@ -25,6 +25,7 @@ public class ObjetoEuclidiano extends ObjetoDataSet{
 				calculo = ((tratamento.imagem.get(i) - tratamento.dataset.get(j).getAtributo(i)) * (tratamento.imagem.get(i) - tratamento.dataset.get(j).getAtributo(i)));
 				distancia = (double)(distancia + calculo);
 			}
+			distancia = Math.sqrt(distancia);
 			tratamento.dataset.get(j).setDistancia(distancia);
 			distancia = 0;
 		}

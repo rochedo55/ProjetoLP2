@@ -1,4 +1,4 @@
-package br.ufrn.imd.controle;
+package br.ufrn.imd.modelo;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import br.ufrn.imd.modelo.Tratamento;
  * @author Anderson Gabriel Rocha
  *
  */
-public class KnnTeste {
+public class Knn {
 	/**
 	 * funcao que ordena para as k distancias mais proximas
 	 * @param tratamento
@@ -29,9 +29,7 @@ public class KnnTeste {
 				if(tratamento.getDataset().get(j).getDistancia() < menor ) {
 					menor = tratamento.getDataset().get(j).getDistancia();
 					id = j;
-					//System.out.print(j+" "+tratamento.getDataset().get(j).getRotulo()+"   "+tratamento.getDataset().get(j).getDistancia()+"\n");
 				}
-				//System.out.print( j+" " +tratamento.getDataset().get(j).getRotulo()+"   "+tratamento.getDataset().get(j).getDistancia()+"\n");
 			}
 			ObjetoEuclidiano teste = new ObjetoEuclidiano();
 			teste.setDistancia(tratamento.getDataset().get(id).getDistancia()); 
@@ -41,9 +39,6 @@ public class KnnTeste {
 			id = 0;
 			menor = 100.0;
 		}
-//		for(int j = 0; j < k; j ++) {
-//			System.out.print(listObj.get(j).getRotulo()+"   "+listObj.get(j).getDistancia()+"\n");
-//		}
 		return knn(listObj, k);
 	}
 	/**

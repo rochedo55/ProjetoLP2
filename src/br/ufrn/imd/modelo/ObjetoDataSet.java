@@ -18,7 +18,7 @@ public abstract class ObjetoDataSet {
 	 */
 	protected char rotulo;
 	protected List<Float> atributos; 
-	protected double distancia;// Distancia euclidiana da imd a instancia
+	protected double distancia;
 	
 	public ObjetoDataSet(){
 		this.atributos = new ArrayList<Float>();
