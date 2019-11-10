@@ -38,7 +38,7 @@ public class Knn {
 			tratamento.getDataset().get(id).setDistancia(1000.0);
 			id = 0;
 			menor = 100.0;
-		}
+		}		
 		return knn(listObj, k);
 	}
 	/**
