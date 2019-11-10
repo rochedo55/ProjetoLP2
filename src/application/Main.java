@@ -6,6 +6,14 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
+/**
+ * Classe principal onde inicializamos a janela da interface gráfica
+ * e vinculamos ela ao arquivo fxml 
+ * 
+ * @author Anderson e Gabriel
+ *
+ */
+
 public class Main extends Application  {
 	
 	@Override

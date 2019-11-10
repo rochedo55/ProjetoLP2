@@ -11,7 +11,7 @@
     <Button fx:id="abrirImg" layoutX="24.0" layoutY="73.0" mnemonicParsing="false" onAction="#abrirImagem" text="Abrir imagem" />
       
       <Label fx:id="label" layoutX="203.0" layoutY="129.0" text="?" />
-      <ComboBox fx:id="comboBox" layoutX="142.0" layoutY="73.0" prefHeight="25.0" prefWidth="67.0" />
+      <ComboBox fx:id="comboBox" layoutX="159.0" layoutY="73.0" prefWidth="50.0" />
       <Label layoutX="231.0" layoutY="77.0" text="K" />
       <Button fx:id="verificar" layoutX="24.0" layoutY="125.0" mnemonicParsing="false" onAction="#ButtonAction" text="Verificar" />
       <Label fx:id="erro" layoutX="40.0" layoutY="25.0" text="    " textFill="RED" visible="true" />

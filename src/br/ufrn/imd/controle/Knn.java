@@ -8,7 +8,11 @@ import java.util.List;
 import br.ufrn.imd.modelo.Tratamento;
 import br.ufrn.imd.modelo.Tupla;
 
-
+/**
+ * Classe alternativa para ordenacao das distancias usando tuplas
+ * @author Anderson e Gabriel Rocha
+ *
+ */
 public class Knn implements KnnInterface {
 //List<Tupla<Integer, Double, Character>> tuples = new ArrayList<Tupla<Integer, Double, Character>>();
 	@Override

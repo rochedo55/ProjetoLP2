@@ -2,13 +2,21 @@ package br.ufrn.imd.modelo;
 
 import br.ufrn.imd.modelo.Tratamento;
 
+/**
+ * Classe Objeto euclidiano, classe filha de ObjetoDataSet, onde é implementado o cálculo da distancian euclidiana
+ * 
+ */
 public class ObjetoEuclidiano extends ObjetoDataSet{
 
 	public  ObjetoEuclidiano(){
 		super();
 	};
 	
-	@Override
+	/**
+	 * Funcao CalcularDistancia
+	 * @param objeto do tipo tratamento com o atributo distancia vazio
+	 * @return tratamento com a distancia calculada
+	 */
 	public Tratamento CalcularDistancia(Tratamento tratamento) {
 		double distancia = 0;
 		double calculo = 0;

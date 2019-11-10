@@ -3,10 +3,21 @@ package br.ufrn.imd.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe ObjetoDataSet, classe para os dados obtidos após a leitura do dataset.csv
+ * @author Anderson e Gabriel 
+ *
+ */
+
 public abstract class ObjetoDataSet {
-	
-	protected char rotulo;// 'p' = pessoa | 'n' = não pessoa 
-	protected List<Float> atributos; // Lista dos 1000 primeiros atributos
+	/**
+	 * {@value #rotulo} 'p' = pessoa | 'n' = não pessoa
+	 * {@value #atributos}  Lista dos 1000 primeiros atributos
+	 * {@value #atributos} distancia de cada linha(imagem) do dataset comparado com a imagem fornecida
+	 * 
+	 */
+	protected char rotulo;
+	protected List<Float> atributos; 
 	protected double distancia;// Distancia euclidiana da imd a instancia
 	
 	public ObjetoDataSet(){

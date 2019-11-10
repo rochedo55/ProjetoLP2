@@ -15,7 +15,21 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+/**
+ * Classe de contro da interface gráfica vinculada ao TelaPrincipal.fxml
+ * @author Anderson e Gabriel Rocha
+ *
+ */
+
 public class ControleTela{
+	/**
+	 * {@value #verificar} botao verificar que executa a funcao para gerar o resultado de ter pessoa ou nao pessoa na imagem
+	 * {@value #tela} tela de fundo que sustenta os botes e label's da interface grafica
+	 * {@value #erro} label que exibe o status da imagem fornecida pelo usuario,caminho ou erro.
+	 * {@value #label} label que exibe o resultado (tem pessoa ou nao)
+	 * {@value #abrirImg} botao que abre o seletor de arquivo para que o usuario escolha
+	 * {@value #comboBox} caixa de escolha de inteiros pra o valor de knn
+	 */
 
 	@FXML
 	private Stage primeiro;
@@ -48,14 +62,19 @@ public class ControleTela{
 	    comboBox.getSelectionModel().select("1");  
 	}
 	
-    
+    /**
+     * Funcao para abrir a janela para a escolha da imagem
+     */
 	@FXML
 	public void abrirImagem() {
 		FileChooser choser = new FileChooser();
 	    File file = choser.showOpenDialog(null);
 	    verificarExtencao(file);
 	}
-	
+	/**
+	 * acao do botao verificar
+	 * @param event acao de apertar o botao verificar
+	 */
 	@FXML
 	public void ButtonAction(ActionEvent event) {
 		Tratamento tratamento = new Tratamento();
@@ -72,7 +91,10 @@ public class ControleTela{
 			erro.setText("Img não encontrada, pfv selecione uma img");
 		}
 	}
-
+	/**
+	 * funcao que verifica se a imagem que o usuario forneceu pode ser usada ou nao para o programa
+	 * @param file arquivo que o usuario escolheu
+	 */
 	public void verificarExtencao(File file) {
 		try {
 			caminho = file.toString();
